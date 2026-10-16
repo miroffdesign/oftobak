@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="tg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Мактабча — Алифбо</title>
+<meta name="description" content="Мактабча: кӯдакон ҳарфҳои алифбои тоҷикиро бо ангушт кашида меомӯзанд.">
+<meta name="theme-color" content="#7CC4FA">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Мактабча">
+<style>
+@font-face{font-family:"Nunito";font-style:normal;font-weight:700 900;font-display:swap;src:url(assets/fonts/nunito-cyrillic-ext-wght-normal.woff2) format("woff2");unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:"Nunito";font-style:normal;font-weight:700 900;font-display:swap;src:url(assets/fonts/nunito-cyrillic-wght-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Nunito";font-style:normal;font-weight:700 900;font-display:swap;src:url(assets/fonts/nunito-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+html,body{margin:0}
+[hidden]{display:none!important}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+</style>
+<link rel="preload" href="assets/fonts/nunito-cyrillic-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Layout: daytime valley scene behind everything; wooden sign header with the cat; frosted letter strip; cream play card with the tracing slate and three big buttons. One bright daytime look on purpose. */
+:root{
+  color-scheme: light;
+  --sky1:#7CC4FA; --sky2:#CDEBFF;
+  --meadow1:#7DB85A; --meadow2:#A8CC5E;
+  --wood1:#C98A4E; --wood2:#A86A35; --woodline:#8E5528; --woodtext:#FFF7EA;
+  --card:#FBF8F3; --slate:#FFFEFB; --ink:#1F2340; --muted:#6B6F8E;
+  --violet:#7B6CF0; --violet2:#6352E0; --lav:#ECE9FB; --sky:#E7F1FB;
+  --coral:#FF6A4D; --orange1:#FF9B3A; --orange2:#FF6E3A;
+  --leaf:#4FB65C; --gold:#FFC93C; --blue1:#2F7BEA; --blue2:#1F5FC9;
+  --display:"Nunito","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;font-family:var(--display);color:var(--ink);
+  background:linear-gradient(180deg,var(--sky1) 0,var(--sky2) 220px,var(--meadow1) 330px,var(--meadow2) 100%);
+  padding-inline:16px;padding-block:12px 32px;position:relative;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+.scene{position:absolute;left:0;right:0;top:0;height:420px;pointer-events:none;z-index:0}
+.scene svg{width:100%;height:100%;display:block}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+
+/* header */
+header{position:relative;display:flex;align-items:center;min-height:118px}
+.cat{width:104px;height:auto;position:relative;z-index:2;margin-right:-26px;filter:drop-shadow(0 4px 6px rgba(60,40,10,.25))}
+.sign{position:relative;flex:1;min-width:0;max-width:330px;transform:rotate(-2.5deg);
+  background:repeating-linear-gradient(176deg,transparent 0 14px,rgba(120,70,30,.18) 14px 15px),linear-gradient(180deg,var(--wood1),var(--wood2));
+  border:3px solid var(--woodline);border-radius:16px;padding:12px 16px 12px 34px;
+  box-shadow:0 6px 0 rgba(110,60,25,.55),0 10px 18px rgba(40,30,10,.25)}
+.sign::before,.sign::after{content:"";position:absolute;top:8px;width:8px;height:8px;border-radius:50%;background:#6E4220;box-shadow:inset 0 1px 1px rgba(255,255,255,.35)}
+.sign::before{left:12px}.sign::after{right:10px}
+.sign h1{margin:0;font-weight:900;font-size:clamp(1.6rem,7vw,2.3rem);line-height:1;color:var(--woodtext);
+  text-shadow:0 2px 0 var(--woodline),0 3px 6px rgba(60,30,10,.35);letter-spacing:.01em}
+.sign p{margin:4px 0 0;font-weight:800;font-size:clamp(.72rem,3vw,.95rem);white-space:nowrap;color:#4A2A12;opacity:.9}
+.stars{margin-left:auto;align-self:flex-start;margin-top:6px;display:flex;align-items:center;gap:6px;
+  background:linear-gradient(180deg,var(--blue1),var(--blue2));color:#fff;font-weight:900;font-size:1.3rem;
+  border:3px solid #fff;border-radius:999px;padding:6px 14px 6px 10px;box-shadow:0 4px 10px rgba(20,60,140,.35);font-variant-numeric:tabular-nums}
+.stars .s{font-size:1.4rem;line-height:1}
+
+/* letter strip */
+.stripbox{background:rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:2px solid rgba(255,255,255,.8);border-radius:22px;padding:10px;display:flex;flex-direction:column;gap:10px}
+.striprow{display:flex;align-items:center;gap:6px}
+.arrow{flex:none;width:34px;height:34px;border-radius:50%;border:0;background:#fff;color:var(--muted);font-size:1.2rem;font-weight:900;cursor:pointer;box-shadow:0 2px 6px rgba(30,40,80,.15)}
+.strip{flex:1;min-width:0;display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding:8px 2px}
+.strip::-webkit-scrollbar{display:none}
+.chip{flex:none;width:52px;height:52px;border-radius:16px;border:0;background:#fff;color:var(--ink);
+  font-family:var(--display);font-weight:900;font-size:1.55rem;cursor:pointer;position:relative;box-shadow:0 3px 0 #DCE0EC,0 4px 10px rgba(30,40,80,.12)}
+.chip[aria-current="true"]{background:linear-gradient(180deg,#8E80F6,var(--violet2));color:#fff;box-shadow:0 3px 0 #4A3BC0,0 6px 12px rgba(80,60,200,.35)}
+.chip.done::after{content:"★";position:absolute;top:-9px;right:-7px;font-size:1rem;color:var(--gold);text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.progress{height:10px;border-radius:99px;background:rgba(170,175,195,.55);overflow:hidden;margin-inline:4px}
+.progress i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#8E80F6,var(--violet2));transition:width .4s ease}
+
+/* play card */
+.card{background:var(--card);border-radius:32px;padding:18px 16px 16px;display:flex;flex-direction:column;gap:14px;
+  box-shadow:0 10px 30px rgba(30,60,30,.25)}
+.wordrow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px}
+.word{display:flex;align-items:center;justify-content:center;gap:12px;min-width:0;padding-left:56px}
+.word .pic{font-size:clamp(2.4rem,11vw,3.4rem);line-height:1;filter:drop-shadow(0 3px 3px rgba(0,0,0,.15))}
+.word .w{font-weight:900;font-size:clamp(1.8rem,8vw,2.6rem);line-height:1;white-space:nowrap}
+.word .w b{background:linear-gradient(180deg,#FF8A65,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.round{width:56px;height:56px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 12px rgba(80,70,180,.2)}
+.slate{background:var(--slate);border-radius:24px;border:1px solid #EFEAE2;box-shadow:inset 0 2px 8px rgba(120,100,70,.06);padding:10px;display:flex;justify-content:center}
+.board{position:relative;width:100%;max-width:440px;aspect-ratio:1}
+.board canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.hint{min-height:1.5em;font-weight:900;color:var(--muted);text-align:center;font-size:1.05rem}
+.hint.win{color:var(--leaf);font-size:1.4rem}
+.btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.btn{min-height:76px;border-radius:22px;border:2px solid transparent;font-family:var(--display);font-weight:900;font-size:clamp(.95rem,4vw,1.2rem);
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--ink)}
+.btn svg{width:30px;height:30px}
+.b-listen{background:var(--lav);border-color:#DCD6F7}
+.b-again{background:var(--sky);border-color:#D3E3F4}
+.b-next{background:linear-gradient(180deg,var(--orange1),var(--orange2));color:#fff;box-shadow:0 5px 0 #D9531F,0 8px 14px rgba(230,90,30,.35)}
+.btn:active,.chip:active,.round:active{transform:translateY(2px)}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--blue1);outline-offset:3px}
+
+details{background:rgba(255,255,255,.92);border-radius:20px;padding:12px 16px}
+summary{cursor:pointer;font-weight:900}
+details p,details li{color:var(--muted);line-height:1.5;font-size:.95rem;font-weight:700}
+details ol{padding-left:1.2em;margin:.5em 0}
+.rec{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
+.rec label{font-weight:900}
+.rec input{max-width:100%}
+.small-btn{border:2px solid #DCD6F7;background:var(--lav);border-radius:12px;padding:8px 12px;font-family:var(--display);font-weight:800;cursor:pointer;color:var(--ink)}
+.status{font-size:.9rem}
+.pop{animation:pop .5s ease}
+@keyframes pop{40%{transform:scale(1.04)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-4px) rotate(3deg)}}
+.cat.happy{animation:bob .5s ease 3}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:380px){.cat{width:84px}.word{padding-left:0}.round{width:48px;height:48px}}
+</style>
+</head>
+<body>
+<div class="scene" aria-hidden="true">
+  <svg viewBox="0 0 400 420" preserveAspectRatio="xMidYMin slice">
+    <g fill="#fff" opacity=".85">
+      <ellipse cx="40" cy="40" rx="34" ry="11"/><ellipse cx="62" cy="32" rx="20" ry="12"/>
+      <ellipse cx="330" cy="150" rx="30" ry="9"/><ellipse cx="350" cy="143" rx="16" ry="9"/>
+    </g>
+    <path d="M250 250 L340 92 L430 250 Z" fill="#8FA6C8"/>
+    <path d="M340 92 L318 130 L330 124 L341 138 L352 122 L362 132 Z" fill="#fff"/>
+    <path d="M170 260 L245 160 L320 260 Z" fill="#A9BCD8"/>
+    <path d="M0 250 Q60 215 130 240 T260 238 T400 232 L400 420 L0 420 Z" fill="#6FAE52"/>
+    <g fill="#3E8A4A">
+      <circle cx="-4" cy="230" r="34"/><circle cx="24" cy="248" r="26"/><circle cx="398" cy="200" r="36"/><circle cx="372" cy="228" r="26"/>
+    </g>
+    <g fill="#57A957"><circle cx="8" cy="268" r="24"/><circle cx="392" cy="252" r="24"/></g>
+  </svg>
+</div>
+
+<div class="wrap">
+  <header>
+    <img class="cat" id="cat" alt="" src="assets/cat.webp">
+    <div class="sign">
+      <h1>Мактабча</h1>
+      <p>Ҳарфро бо ангушт кашед</p>
+    </div>
+    <div class="stars" aria-label="Ситораҳо"><span class="s" aria-hidden="true">⭐</span><span id="count">0</span></div>
+  </header>
+
+  <div class="stripbox">
+    <div class="striprow">
+      <button class="arrow" id="prevSet" type="button" aria-label="Ба чап">‹</button>
+      <nav class="strip" id="strip" aria-label="Ҳарфҳо"></nav>
+      <button class="arrow" id="nextSet" type="button" aria-label="Ба рост">›</button>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </div>
+
+  <section class="card" id="card">
+    <div class="wordrow">
+      <div class="word"><span class="pic" id="pic"></span><span class="w" id="wtext"></span></div>
+      <button class="round" id="listen2" type="button" aria-label="Гӯш кун">
+        <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M5 12h5l7-6v20l-7-6H5z" fill="#6352E0"/><path d="M21 11c2 2.6 2 7.4 0 10M24.5 8c4 4.6 4 11.4 0 16" stroke="#6352E0" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="slate"><div class="board" id="board"><canvas id="cv" aria-label="Тахта барои кашидани ҳарф"></canvas></div></div>
+    <div class="hint" id="hint" aria-live="polite">«а» — аз рақами 1 сар кунед</div>
+    <div class="btns">
+      <button class="btn b-listen" id="listen" type="button">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 12h5l7-6v20l-7-6H5z" fill="#6352E0"/><path d="M21 11c2 2.6 2 7.4 0 10M24.5 8c4 4.6 4 11.4 0 16" stroke="#6352E0" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>Гӯш кун</button>
+      <button class="btn b-again" id="again" type="button">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M25 16a9 9 0 1 1-3-6.7" stroke="#6352E0" stroke-width="3.2" fill="none" stroke-linecap="round"/><path d="M23.5 4.5v6h-6" stroke="#6352E0" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Аз нав</button>
+      <button class="btn b-next" id="next" type="button">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 16h18M17 8l8 8-8 8" stroke="#fff" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Навбатӣ</button>
+    </div>
+  </section>
+
+  <details>
+    <summary>Для взрослых: как тестировать и как добавить звук</summary>
+    <ol>
+      <li>Дайте ребёнку телефон и попросите обвести букву пальцем, начиная с цифры 1. Первые 30 секунд ничего не подсказывайте.</li>
+      <li>Если буква обведена достаточно точно, она станет зелёной, кот обрадуется и добавится звёздочка.</li>
+      <li>Запишите, где ребёнок застрял и сколько букв прошёл сам.</li>
+    </ol>
+    <p>Готового таджикского голоса в браузере нет. Запишите на диктофон телефона звук и слово (например: «Ғ… ғоз») и загрузите файл для текущей буквы. Звук сохраняется только на этом устройстве.</p>
+    <div class="rec">
+      <label for="audioFile">Звук для буквы <span id="recLetter">А</span>:</label>
+      <input type="file" id="audioFile" accept="audio/*">
+      <button class="small-btn" id="clearAudio" type="button">Удалить звук</button>
+    </div>
+    <p class="status" id="audioStatus"></p>
+  </details>
+</div>
+
+<script>
+(function(){
+  // ---- letter shapes on a 100×100 grid: each stroke is a list of points, in writing order ----
+  function arc(cx, cy, rx, ry, a0, a1, n){
+    const pts = []; n = n || 24;
+    for (let i = 0; i <= n; i++){ const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; pts.push([cx + rx * Math.cos(a), cy + ry * Math.sin(a)]); }
+    return pts;
+  }
+  const MAC = [[40,6],[60,6]], DOTS = [[[37,5],[37.6,5.6]], [[63,5],[63.6,5.6]]];
+  const LETTERS = [
+    {l:"А", n:"а", w:"Ангур", p:"🍇", s:[ [[50,15],[24,85]], [[50,15],[76,85]], [[35,62],[65,62]] ]},
+    {l:"Б", n:"бе", w:"Банан", p:"🍌", s:[ [[30,15],[30,85]], [[30,15],[72,15]], [[30,48],[52,48]].concat(arc(52,66.5,19,18.5,-90,90,20)).concat([[30,85]]) ]},
+    {l:"В", n:"ве", w:"Велосипед", p:"🚲", s:[ [[30,15],[30,85]], [[30,15],[52,15]].concat(arc(52,31.5,17,16.5,-90,90,16)).concat([[30,48]]), [[30,48],[54,48]].concat(arc(54,66.5,19,18.5,-90,90,18)).concat([[30,85]]) ]},
+    {l:"Г", n:"ге", w:"Гул", p:"🌸", s:[ [[34,15],[34,85]], [[34,15],[72,15]] ]},
+    {l:"Ғ", n:"ғе", w:"Ғоз", p:"🪿", s:[ [[38,15],[38,85]], [[38,15],[76,15]], [[22,52],[54,52]] ]},
+    {l:"Д", n:"де", w:"Дарахт", p:"🌳", s:[ [[40,15],[38,50],[28,72]], [[40,15],[72,15],[72,72]], [[18,90],[18,72],[82,72],[82,90]] ]},
+    {l:"Е", n:"йе", w:"Себ", p:"🍎", s:[ [[30,15],[30,85]], [[30,15],[70,15]], [[30,50],[64,50]], [[30,85],[72,85]] ]},
+    {l:"Ё", n:"йо", w:"Ёғоч", p:"🪵", s:[ [[30,15],[30,85]], [[30,15],[70,15]], [[30,50],[64,50]], [[30,85],[72,85]] ].concat(DOTS)},
+    {l:"Ж", n:"же", w:"Жираф", p:"🦒", s:[ [[50,15],[50,85]], [[18,15],[46,50],[16,85]], [[82,15],[54,50],[84,85]] ]},
+    {l:"З", n:"зе", w:"Занбӯр", p:"🐝", s:[ arc(48,32,20,17,-160,90,18).concat(arc(48,67,22,18,-90,160,20)) ]},
+    {l:"И", n:"и", w:"Ид", p:"🎉", s:[ [[26,15],[26,85]], [[26,85],[74,15]], [[74,15],[74,85]] ]},
+    {l:"Ӣ", n:"и-имло", w:"Моҳӣ", p:"🐟", s:[ [[26,15],[26,85]], [[26,85],[74,15]], [[74,15],[74,85]], MAC ]},
+    {l:"Й", n:"йот", w:"Пойафзол", p:"👟", s:[ [[26,15],[26,85]], [[26,85],[74,15]], [[74,15],[74,85]], arc(50,1,11,7,160,20,10) ]},
+    {l:"К", n:"ке", w:"Китоб", p:"📖", s:[ [[28,15],[28,85]], [[70,15],[30,55]], [[42,44],[72,85]] ]},
+    {l:"Қ", n:"қе", w:"Қалам", p:"✏️", s:[ [[28,15],[28,85]], [[70,15],[30,55]], [[42,44],[68,85],[80,85],[80,96]] ]},
+    {l:"Л", n:"ле", w:"Лола", p:"🌷", s:[ [[38,15],[34,55],[20,85]], [[38,15],[72,15],[72,85]] ]},
+    {l:"М", n:"ме", w:"Мушук", p:"🐱", s:[ [[22,85],[22,15],[50,60],[78,15],[78,85]] ]},
+    {l:"Н", n:"не", w:"Нон", p:"🫓", s:[ [[28,15],[28,85]], [[72,15],[72,85]], [[28,50],[72,50]] ]},
+    {l:"О", n:"о", w:"Офтоб", p:"☀️", s:[ arc(50,50,27,35,-90,-450,44) ]},
+    {l:"П", n:"пе", w:"Пиёз", p:"🧅", s:[ [[28,15],[28,85]], [[28,15],[72,15],[72,85]] ]},
+    {l:"Р", n:"ре", w:"Рӯбоҳ", p:"🦊", s:[ [[30,15],[30,85]], [[30,15],[52,15]].concat(arc(52,34,19,19,-90,90,18)).concat([[30,53]]) ]},
+    {l:"С", n:"се", w:"Сабзӣ", p:"🥕", s:[ arc(50,50,27,35,-35,-325,40) ]},
+    {l:"Т", n:"те", w:"Тарбуз", p:"🍉", s:[ [[22,15],[78,15]], [[50,15],[50,85]] ]},
+    {l:"У", n:"у", w:"Уштур", p:"🐫", s:[ [[22,15],[50,62]], [[78,15],[50,72],[42,82],[30,86]] ]},
+    {l:"Ӯ", n:"ӯ", w:"Кӯҳ", p:"⛰️", s:[ [[22,15],[50,62]], [[78,15],[50,72],[42,82],[30,86]], MAC ]},
+    {l:"Ф", n:"фе", w:"Фил", p:"🐘", s:[ [[50,10],[50,92]], arc(50,48,30,20,-90,-450,40) ]},
+    {l:"Х", n:"хе", w:"Хона", p:"🏠", s:[ [[24,15],[76,85]], [[76,15],[24,85]] ]},
+    {l:"Ҳ", n:"ҳе", w:"Ҳавопаймо", p:"✈️", s:[ [[24,15],[70,85],[80,85],[80,96]], [[72,15],[24,85]] ]},
+    {l:"Ч", n:"че", w:"Чой", p:"🍵", s:[ [[28,15],[28,38]].concat(arc(46,38,18,17,180,90,14)).concat([[70,55]]), [[70,15],[70,85]] ]},
+    {l:"Ҷ", n:"че", w:"Ҷӯҷа", p:"🐥", s:[ [[28,15],[28,38]].concat(arc(46,38,18,17,180,90,14)).concat([[70,55]]), [[70,15],[70,85],[80,85],[80,96]] ]},
+    {l:"Ш", n:"ше", w:"Шер", p:"🦁", s:[ [[20,15],[20,85],[80,85],[80,15]], [[50,15],[50,85]] ]},
+    {l:"Ъ", n:"аломати сакта", w:"Санъат", p:"🎨", s:[ [[16,15],[34,15]], [[34,15],[34,85]], [[34,48],[56,48]].concat(arc(56,66.5,19,18.5,-90,90,18)).concat([[34,85]]) ]},
+    {l:"Э", n:"э", w:"Экран", p:"📺", s:[ arc(50,50,27,35,-145,145,40), [[36,50],[76,50]] ]},
+    {l:"Ю", n:"йу", w:"Юрта", p:"⛺", s:[ [[18,15],[18,85]], [[18,50],[38,50]], arc(60,50,21,35,-90,-450,40) ]},
+    {l:"Я", n:"йа", w:"Яхмос", p:"🍦", s:[ [[70,15],[70,85]], [[70,15],[48,15]].concat(arc(48,33,19,18,-90,-270,16)).concat([[70,51]]), [[52,51],[26,85]] ]}
+  ];
+  // fit everything (accents above, tails below) inside the slate
+  LETTERS.forEach(L => { L.s = L.s.map(st => st.map(p => [7 + p[0] * .86, 8 + p[1] * .86])); });
+  const $ = id => document.getElementById(id);
+  const cv = $("cv"), ctx = cv.getContext("2d");
+  const paint = document.createElement("canvas"), pctx = paint.getContext("2d");
+  const mask = document.createElement("canvas"), mctx = mask.getContext("2d");
+  let idx = 0, size = 0, dpr = 1, drawing = false, last = null, won = false;
+  let done = new Set();
+  try { done = new Set(JSON.parse(localStorage.getItem("mk_done") || "[]")); } catch(e){}
+  const C = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const LETTER_W = 14, BRUSH_W = 12;
+
+  // ---- strip ----
+  const strip = $("strip");
+  LETTERS.forEach((it, i) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = it.l; b.id = "chip-" + i;
+    b.setAttribute("aria-label", "Ҳарфи " + it.l);
+    b.addEventListener("click", () => go(i));
+    strip.appendChild(b);
+  });
+  $("prevSet").addEventListener("click", () => strip.scrollBy({left:-180}));
+  $("nextSet").addEventListener("click", () => strip.scrollBy({left:180}));
+  function refresh(){
+    LETTERS.forEach((it, i) => {
+      const c = $("chip-" + i);
+      c.setAttribute("aria-current", i === idx ? "true" : "false");
+      c.classList.toggle("done", done.has(it.l));
+    });
+    $("count").textContent = done.size;
+    $("bar").style.width = (done.size / LETTERS.length * 100) + "%";
+  }
+
+  // ---- canvas ----
+  function layout(){
+    const r = $("board").getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    size = Math.max(200, Math.round(r.width));
+    for (const c of [cv, paint, mask]) { c.width = size * dpr; c.height = size * dpr; }
+    for (const c of [ctx, pctx, mctx]) c.setTransform(dpr * size / 100, 0, 0, dpr * size / 100, 0, 0);
+    buildMask(); render();
+  }
+  function polyline(c, pts){ c.beginPath(); c.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) c.lineTo(pts[i][0], pts[i][1]); }
+  function buildMask(){
+    mctx.clearRect(0,0,100,100);
+    mctx.strokeStyle = "#000"; mctx.lineWidth = LETTER_W; mctx.lineCap = "round"; mctx.lineJoin = "round";
+    LETTERS[idx].s.forEach(s => { polyline(mctx, s); mctx.stroke(); });
+  }
+  function pointAlong(pts, dist){
+    let acc = 0;
+    for (let i = 1; i < pts.length; i++){
+      const dx = pts[i][0]-pts[i-1][0], dy = pts[i][1]-pts[i-1][1], L = Math.hypot(dx, dy);
+      if (acc + L >= dist){ const t = (dist - acc) / L; return [pts[i-1][0] + dx*t, pts[i-1][1] + dy*t]; }
+      acc += L;
+    }
+    return pts[pts.length-1];
+  }
+  function render(){
+    ctx.clearRect(0,0,100,100);
+    // notebook guide lines
+    ctx.strokeStyle = "#E3DEF3"; ctx.lineWidth = .5; ctx.setLineDash([2.2, 1.6]);
+    [21, 51, 81].forEach(y => { ctx.beginPath(); ctx.moveTo(6, y); ctx.lineTo(94, y); ctx.stroke(); });
+    ctx.setLineDash([]);
+    const strokes = LETTERS[idx].s;
+    // thick letter body
+    const g = ctx.createLinearGradient(0, 10, 0, 95);
+    g.addColorStop(0, won ? "#7BDB82" : "#8D7FF6"); g.addColorStop(1, won ? "#3FA94E" : "#6C5BE6");
+    ctx.save();
+    ctx.shadowColor = "rgba(70,50,170,.25)"; ctx.shadowBlur = 3 * dpr * size / 100; ctx.shadowOffsetY = 1.2 * dpr * size / 100;
+    ctx.strokeStyle = g; ctx.lineWidth = LETTER_W; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    strokes.forEach(s => { polyline(ctx, s); ctx.stroke(); });
+    ctx.restore();
+    // child's paint
+    ctx.drawImage(paint, 0, 0, 100, 100);
+    if (won) return;
+    // dashed centre line + arrowheads
+    ctx.strokeStyle = "rgba(255,255,255,.95)"; ctx.fillStyle = "#fff"; ctx.lineWidth = .9; ctx.setLineDash([2.4, 2]);
+    const plen = s => { let L = 0; for (let i = 1; i < s.length; i++) L += Math.hypot(s[i][0]-s[i-1][0], s[i][1]-s[i-1][1]); return L; };
+    const guided = strokes.filter(s => plen(s) >= 4);
+    guided.forEach(s => {
+      const start = pointAlong(s, 5.5);
+      const pts = [start].concat(s.slice(1));
+      polyline(ctx, pts); ctx.stroke();
+      const a = s[s.length-2], b = s[s.length-1], ang = Math.atan2(b[1]-a[1], b[0]-a[0]);
+      ctx.save(); ctx.setLineDash([]); ctx.translate(b[0], b[1]); ctx.rotate(ang);
+      ctx.beginPath(); ctx.moveTo(.5, 0); ctx.lineTo(-3.2, -2.4); ctx.lineTo(-3.2, 2.4); ctx.closePath(); ctx.fill(); ctx.restore();
+    });
+    ctx.setLineDash([]);
+    // numbered start dots
+    const used = [];
+    guided.forEach((s, i) => {
+      let p = s[0];
+      if (used.some(u => Math.hypot(u[0]-p[0], u[1]-p[1]) < 6)) p = pointAlong(s, 11);
+      used.push(p);
+      ctx.beginPath(); ctx.arc(p[0], p[1], 4.6, 0, Math.PI*2);
+      ctx.fillStyle = "#fff"; ctx.fill();
+      ctx.lineWidth = .7; ctx.strokeStyle = "#6352E0"; ctx.stroke();
+      ctx.fillStyle = "#4A3BC0"; ctx.font = "900 6px Nunito, Arial, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(String(i + 1), p[0], p[1] + .3);
+    });
+  }
+  function pos(e){
+    const r = cv.getBoundingClientRect();
+    return [(e.clientX - r.left) * 100 / r.width, (e.clientY - r.top) * 100 / r.height];
+  }
+  function stroke(a, b){
+    pctx.strokeStyle = "rgba(255,150,60,.92)"; pctx.lineWidth = BRUSH_W; pctx.lineCap = "round"; pctx.lineJoin = "round";
+    pctx.beginPath(); pctx.moveTo(a[0], a[1]); pctx.lineTo(b[0], b[1]); pctx.stroke();
+  }
+  cv.addEventListener("pointerdown", e => {
+    if (won) return;
+    e.preventDefault(); try { cv.setPointerCapture(e.pointerId); } catch(_){}
+    drawing = true; last = pos(e); stroke(last, last); render();
+  });
+  cv.addEventListener("pointermove", e => { if (!drawing) return; const p = pos(e); stroke(last, p); last = p; render(); });
+  const end = () => { if (!drawing) return; drawing = false; check(); };
+  cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
+
+  function check(){
+    const W = paint.width, H = paint.height;
+    const pd = pctx.getImageData(0,0,W,H).data, md = mctx.getImageData(0,0,W,H).data;
+    let glyph = 0, covered = 0, painted = 0, outside = 0;
+    const step = Math.max(2, Math.round(W / 150));
+    for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) {
+      const i = (y * W + x) * 4 + 3, g = md[i] > 128, p = pd[i] > 40;
+      if (g) { glyph++; if (p) covered++; }
+      if (p) { painted++; if (!g) outside++; }
+    }
+    const cov = glyph ? covered / glyph : 0, spill = painted ? outside / painted : 0;
+    if (cov >= 0.65 && spill <= 0.5) win();
+    else if (spill > 0.5 && painted > glyph * 0.6) hint("Аз болои ҳарф кашед", false);
+    else if (cov > 0.3) hint("Боз каме кашед!", false);
+  }
+  function hint(t, w){ const h = $("hint"); h.textContent = t; h.classList.toggle("win", !!w); }
+
+  function win(){
+    won = true;
+    done.add(LETTERS[idx].l);
+    try { localStorage.setItem("mk_done", JSON.stringify([...done])); } catch(e){}
+    pctx.clearRect(0,0,100,100);
+    render(); burst(); hint("Офарин! ⭐", true); refresh(); chime(true);
+    const card = $("card"); card.classList.remove("pop"); void card.offsetWidth; card.classList.add("pop");
+    const cat = $("cat"); cat.classList.remove("happy"); void cat.offsetWidth; cat.classList.add("happy");
+    setTimeout(speak, 800);
+  }
+  function burst(){
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const colors = ["#FFC93C", "#FF6A4D", "#4FB65C", "#7B6CF0", "#2F7BEA"];
+    const parts = Array.from({length: 40}, () => ({x:50, y:50, vx:(Math.random()-.5)*3.2, vy:(Math.random()-.85)*3.2, r:1.6+Math.random()*2.2, c:colors[Math.floor(Math.random()*colors.length)], a:1}));
+    let t = 0;
+    (function frame(){
+      render();
+      parts.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .1; p.a -= .017; ctx.globalAlpha = Math.max(p.a, 0); ctx.fillStyle = p.c; star(p.x, p.y, p.r); });
+      ctx.globalAlpha = 1;
+      if (++t < 60) requestAnimationFrame(frame); else render();
+    })();
+  }
+  function star(x, y, r){ ctx.beginPath(); for (let i = 0; i < 10; i++){ const a = Math.PI/5*i - Math.PI/2, rr = i % 2 ? r*.45 : r; ctx.lineTo(x + Math.cos(a)*rr, y + Math.sin(a)*rr); } ctx.closePath(); ctx.fill(); }
+
+  // ---- sound ----
+  let actx = null;
+  function chime(happy){
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      (happy ? [523, 659, 784, 1047] : [440]).forEach((f, i) => {
+        const o = actx.createOscillator(), g = actx.createGain(); o.type = "triangle"; o.frequency.value = f;
+        const t0 = actx.currentTime + i * .11;
+        g.gain.setValueAtTime(.0001, t0); g.gain.exponentialRampToValueAtTime(.18, t0 + .02); g.gain.exponentialRampToValueAtTime(.0001, t0 + .35);
+        o.connect(g).connect(actx.destination); o.start(t0); o.stop(t0 + .4);
+      });
+    } catch(e){}
+  }
+  let dbp = null;
+  function db(){
+    if (dbp) return dbp;
+    dbp = new Promise(res => { try { const r = indexedDB.open("maktabcha", 1); r.onupgradeneeded = () => r.result.createObjectStore("audio"); r.onsuccess = () => res(r.result); r.onerror = () => res(null); } catch(e){ res(null); } });
+    return dbp;
+  }
+  async function getAudio(l){ const d = await db(); if (!d) return null; return new Promise(res => { try { const q = d.transaction("audio").objectStore("audio").get(l); q.onsuccess = () => res(q.result || null); q.onerror = () => res(null); } catch(e){ res(null); } }); }
+  async function putAudio(l, blob){ const d = await db(); if (!d) return false; return new Promise(res => { try { const tx = d.transaction("audio", "readwrite"); blob ? tx.objectStore("audio").put(blob, l) : tx.objectStore("audio").delete(l); tx.oncomplete = () => res(true); tx.onerror = () => res(false); } catch(e){ res(false); } }); }
+  let player = null;
+  async function speak(){
+    const it = LETTERS[idx], blob = await getAudio(it.l);
+    if (blob) { try { if (player) player.pause(); player = new Audio(URL.createObjectURL(blob)); await player.play(); return; } catch(e){} }
+    const voices = (window.speechSynthesis && speechSynthesis.getVoices()) || [];
+    const tg = voices.find(v => /^tg/i.test(v.lang));
+    if (tg) { const u = new SpeechSynthesisUtterance(it.n + ". " + it.w); u.voice = tg; u.lang = tg.lang; u.rate = .8; speechSynthesis.cancel(); speechSynthesis.speak(u); return; }
+    chime(false);
+    $("audioStatus").textContent = "Для буквы " + it.l + " звук ещё не записан. Загрузите файл ниже.";
+  }
+  async function audioStatus(){
+    const it = LETTERS[idx]; $("recLetter").textContent = it.l;
+    const has = await getAudio(it.l);
+    $("audioStatus").textContent = has ? "Звук для буквы " + it.l + " сохранён на этом устройстве." : "Для буквы " + it.l + " звук пока не загружен.";
+  }
+  $("audioFile").addEventListener("change", async e => {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const ok = await putAudio(LETTERS[idx].l, f);
+    $("audioStatus").textContent = ok ? "Сохранено. Нажмите «Гӯш кун», чтобы проверить." : "Не удалось сохранить файл. Откройте страницу не в режиме инкогнито.";
+    e.target.value = "";
+  });
+  $("clearAudio").addEventListener("click", async () => { await putAudio(LETTERS[idx].l, null); audioStatus(); });
+
+  // ---- navigation ----
+  function go(i){
+    idx = (i + LETTERS.length) % LETTERS.length; won = false;
+    pctx.clearRect(0,0,100,100);
+    const it = LETTERS[idx];
+    $("pic").textContent = it.p;
+    const k = Math.max(0, it.w.toLowerCase().indexOf(it.l.toLowerCase()));
+    $("wtext").innerHTML = it.w.slice(0, k) + "<b>" + it.w.slice(k, k + 1) + "</b>" + it.w.slice(k + 1);
+    hint("«" + it.n + "» — аз рақами 1 сар кунед", false);
+    buildMask(); render(); refresh(); audioStatus();
+    const c = $("chip-" + idx); const sl = c.offsetLeft - strip.clientWidth / 2 + c.offsetWidth / 2; strip.scrollTo({left: sl});
+  }
+  $("listen").addEventListener("click", speak);
+  $("listen2").addEventListener("click", speak);
+  $("again").addEventListener("click", () => go(idx));
+  $("next").addEventListener("click", () => go(idx + 1));
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { layout(); }, 120); });
+
+  const start = () => { layout(); go(0); };
+  (document.fonts && document.fonts.load) ? document.fonts.load("900 20px Nunito", "АҒҚҲҶ123").then(start, start) : start();
+})();
+</script>
+<script>
+if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {})); }
+</script>
+</body>
+</html>
